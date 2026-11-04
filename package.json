@@ -1,0 +1,7 @@
+{
+  "name": "heights-house",
+  "private": true,
+  "type": "module",
+  "dependencies": { "@vercel/blob": "2.8.2" },
+  "engines": { "node": "22.x" }
+}
