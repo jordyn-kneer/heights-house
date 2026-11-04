@@ -7,4 +7,4 @@ Public site for Heights House, 1314 E Marietta Ave, Peoria Heights, IL.
 - Staff sign-in is at `/#staff`. The passcode is the `ADMIN_KEY` environment variable in Vercel (Project → Settings → Environment Variables).
 - Optional email alerts: add `RESEND_API_KEY` and `NOTIFY_EMAIL` (comma-separated) in Vercel to get an email for each new request.
 
-To edit the page, change `public/index.html` (or `src/app.js` and run `python3 build.py`), then push. Vercel redeploys automatically.
+To edit the page, change `public/index.html`, then push. Vercel redeploys automatically.

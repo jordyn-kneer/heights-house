@@ -6,8 +6,12 @@
 <title>Heights House · Coworking in Peoria Heights</title>
 <meta name="description" content="Heights House is a coworking and gathering space at 1314 E Marietta Ave in Peoria Heights, IL. Desks, private offices, a conference room any local business can book, and events for agents of every brokerage.">
 <meta property="og:title" content="Heights House · Peoria Heights, IL">
-<meta property="og:description" content="Coworking, a bookable conference room and a calendar full of lunches, trainings and get-togethers. Every brokerage welcome.">
-<meta property="og:image" content="/photos/exterior.jpg">
+<meta property="og:description" content="Coworking, private offices, a conference room local businesses can book, and a podcast room on the way. Every brokerage welcome. Come see the house.">
+<meta property="og:image" content="https://heights-house.vercel.app/photos/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://heights-house.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#FF5B3A">
 <link rel="icon" type="image/png" href="/icon.png">
@@ -364,6 +368,26 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   .plan>div{font-size:.68rem}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* PODCAST */
+.pod{background:#1E1712;color:#F6EBDD;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.pod-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:2.5rem;align-items:center}
+.pod .eyebrow{color:#F2A65A}
+.pod h2{color:#FFF4E6}
+.pod-copy{display:grid;gap:1rem;align-content:start}
+.pod-copy p{color:#E8D9C6;font-size:1.05rem;line-height:1.6}
+.pod-img{margin:0}
+.pod-img button{display:block;padding:0;border:0;background:none;cursor:zoom-in;width:100%}
+.pod-img img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;border:2px solid #F2A65A;box-shadow:0 0 0 6px rgba(242,166,90,.12),0 20px 50px rgba(0,0,0,.45)}
+.pod-img figcaption{font-family:var(--mono);font-size:.72rem;color:#C9B49A;margin-top:.6rem;text-transform:uppercase;letter-spacing:.08em}
+.pod-list{list-style:none;margin:.3rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.pod-list li{border:1.5px solid #F2A65A;color:#FFE3C2;border-radius:999px;padding:.35rem .8rem;font-size:.85rem;font-weight:600}
+.pod .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.pod .btn.ghost{color:#FFF4E6;border-color:#FFF4E6}
+@media (max-width:820px){.pod-grid{grid-template-columns:minmax(0,1fr)}}
+/* TOURS */
+.tour-form{display:grid;gap:.8rem}
+.tour-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media (max-width:560px){.tour-form .row2{grid-template-columns:1fr}}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 #staffBar{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.8rem;padding:.5rem 1rem;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
 #staffBar[hidden]{display:none}
@@ -406,8 +430,8 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
 </div></header>
 
 <div class="ticker" aria-hidden="true" data-view="home"><div class="row">
-  <span>Coworking</span><span>Private offices</span><span>Conference room</span><span>Podcast studio</span><span>Garage trainings</span><span>Smoker lunches</span><span>Good coffee</span>
-  <span>Coworking</span><span>Private offices</span><span>Conference room</span><span>Podcast studio</span><span>Garage trainings</span><span>Smoker lunches</span><span>Good coffee</span>
+  <span>Coworking</span><span>Private offices</span><span>Conference room</span><span>Podcast room</span><span>Garage trainings</span><span>Smoker lunches</span><span>Good coffee</span>
+  <span>Coworking</span><span>Private offices</span><span>Conference room</span><span>Podcast room</span><span>Garage trainings</span><span>Smoker lunches</span><span>Good coffee</span>
 </div></div>
 
 <section id="why" data-view="home"><div class="wrap">
@@ -419,7 +443,19 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <div><span class="big">Work</span><p>Grab an open desk or claim your own. Fast wifi, a printer, and people to bounce a counteroffer off of.</p></div>
     <div><span class="big">Meet</span><p>Bring clients to a real office for consults, signings and listing appointments. Local business owners can book the conference room for their own meetings.</p></div>
     <div><span class="big">Learn</span><p>Monthly hands-on trainings on contracts, marketing, tech and the local market. Things you can use this week.</p></div>
-    <div><span class="big">Record</span><p>A podcast studio in the garage for market updates, listing walkthroughs and interviews.</p></div>
+    <div><span class="big">Record</span><p>A podcast room for market updates, interviews and your next big idea. Opening soon, and open to the public.</p></div>
+  </div>
+</div></section>
+
+<section id="podcast" class="pod" data-view="home"><div class="wrap pod-grid">
+  <figure class="pod-img"><button type="button" data-src="photos/podcast-vision.jpg" data-cap="The Podcast Room, design rendering"><img src="photos/podcast-vision.jpg" alt="Rendering of the podcast room: dark acoustic panels with warm edge lighting, a round wood table with four microphones and upholstered chairs, and two leather lounge chairs with mics against a slatted wood wall" loading="lazy"></button><figcaption>Design rendering · the real room is being built now</figcaption></figure>
+  <div class="pod-copy">
+    <p class="eyebrow">Coming soon · open to the public</p>
+    <h2>The Podcast Room</h2>
+    <p>We're building a podcast room you'll want to be seen in. Acoustic panels and warm light, a table with four mics for round-table conversations, and two lounge chairs for one-on-one interviews.</p>
+    <p>It's open to everyone, not just members. Bring your show, your business or your big idea and book it by the hour. We're aiming to open within the month.</p>
+    <ul class="pod-list"><li>4 mics around the table</li><li>Interview lounge</li><li>Sound-treated walls</li><li>Book by the hour</li></ul>
+    <div class="cta"><a class="btn primary" href="#contact">Get on the list →</a><a class="btn ghost" href="#book">Request a time</a></div>
   </div>
 </div></section>
 
@@ -432,7 +468,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <div class="copy">
       <p>Heights House is a home base in the middle of Peoria Heights. It's a place to work, meet, learn and hang out, built for people who would rather do business around good people than alone at the kitchen table.</p>
       <p>At our core, we're real estate agents, and we wanted a coworking space that feels open to everyone, where your brokerage doesn't matter. Come learn with us, share what's working, and lean on each other when a deal gets complicated.</p>
-      <p>And it's bigger than real estate. We want entrepreneurs and neighbors swapping ideas over coffee, learning from each other, and showing up for lunches out of the garage in the summer and Christmas parties in the winter.</p>
+      <p>And it's bigger than real estate. We want entrepreneurs and local business owners swapping ideas over coffee, learning from each other, and showing up for lunches out of the garage in the summer and Christmas parties in the winter.</p>
       <p class="kicker">Come for the desk. Stay for the people.</p>
     </div>
   </div>
@@ -440,7 +476,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <div style="--c:var(--tomato)"><h3>Right in the middle of it all</h3><p>Peoria Heights puts you a short drive from showings all over the Peoria area, with coffee and lunch spots around the corner for the time between appointments.</p></div>
     <div style="--c:var(--sun)"><h3>Somewhere to keep the signs</h3><p>Sign, rider and open house kit storage in the garage, so your trunk and your garage at home get a break.</p></div>
     <div style="--c:var(--sky)"><h3>A room that wins listings</h3><p>Sit sellers down in a real office with the smart board for your listing presentation, not at a coffee shop table.</p></div>
-    <div style="--c:var(--mint)"><h3>A studio for your content</h3><p>Record market updates, listing walkthroughs and client stories in the podcast studio.</p></div>
+    <div style="--c:var(--mint)"><h3>A studio for your content</h3><p>Record market updates, listing walkthroughs and client stories in the podcast room.</p></div>
     <div style="--c:var(--lilac)"><h3>Trainings that pay for themselves</h3><p>Hands-on sessions on contracts, listings, marketing and tech, taught by people doing the work.</p></div>
     <div style="--c:var(--blush)"><h3>Someone to call when a deal gets weird</h3><p>Agents from different brokerages under one roof. Somebody down the hall has seen it before.</p></div>
   </div>
@@ -483,7 +519,8 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
       <div><h3>Coworking room · 19'3" × 21'7"</h3><p>Windows on two sides, open and dedicated desks, outlets everywhere.</p></div>
       <div><h3>Two private offices</h3><p>Lockable, with a real door. 14'11" × 11'8" and 9'4" × 13'7".</p></div>
       <div><h3>Galley kitchen + workroom</h3><p>Kitchen, dishwasher, coffee, the printer and member mail.</p></div>
-      <div><h3>The Garage · 1,700 sq ft</h3><p>The big room. Tall ceilings, its own restroom and a drive-in door. Set up tables for a training, host a lunch or happy hour, or open the door and fire up the grill and smoker. The podcast studio is being built out here too, along with sign storage for members.</p></div>
+      <div><h3>The Podcast Room · opening soon</h3><p>Acoustic panels, warm lighting, a round table with four mics and two lounge chairs for interviews. Open to members and the public. <a href="#podcast">See the vision →</a></p></div>
+      <div><h3>The Garage · 1,700 sq ft</h3><p>The big room. Tall ceilings, its own restroom and a drive-in door. Set up tables for a training, host a lunch or happy hour, or open the door and fire up the grill and smoker. Sign storage for members lives out here too.</p></div>
     </div>
   </div>
   <div class="strip-head"><h3>Take a look around</h3></div>
@@ -522,30 +559,30 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <a class="back" href="#top">← Back to home</a>
     <p class="eyebrow">Membership</p>
     <h2>Pick your spot</h2>
-    <p>Month to month, no long contracts. Every level includes trainings, open work days, every get-together, wifi and coffee. Move up a level for more time in the house and more space to call your own.</p>
+    <p>Pricing is coming soon. Book a tour to hear it first. Month to month, no long contracts. Every level includes trainings, open work days, every get-together, wifi and coffee. Move up a level for more time in the house and more space to call your own.</p>
   </div>
   <div class="tiers">
     <div class="tier">
       <span class="chip">Community</span>
-      <div class="price">$60<small>/mo</small></div>
+      <div class="price">TBD<small>/mo</small></div>
       <p style="font-size:.92rem;color:var(--muted)">You're part of the house.</p>
       <ul><li>Business mailing address</li><li>Monthly trainings + open work days</li><li>Every get-together</li><li>Wifi + coffee when you're in</li></ul>
     </div>
     <div class="tier">
       <span class="chip">Neighbor</span>
-      <div class="price">$100<small>/mo</small></div>
+      <div class="price">TBD<small>/mo</small></div>
       <p style="font-size:.92rem;color:var(--muted)">The house is yours, any time.</p>
       <ul><li>Everything in Community</li><li>Come in any time and grab any open seat</li><li>Printer + workroom</li><li>Conference room by the hour</li></ul>
     </div>
     <div class="tier">
       <span class="chip">Resident</span>
-      <div class="price">$150<small>/mo</small></div>
+      <div class="price">TBD<small>/mo</small></div>
       <p style="font-size:.92rem;color:var(--muted)">Your own spot in the coworking room.</p>
       <ul><li>Everything in Neighbor</li><li>A desk that's always yours</li><li>Locking drawer, so you can leave your setup out</li><li>Sign + gear storage included</li></ul>
     </div>
     <div class="tier">
       <span class="chip">Private Office</span>
-      <div class="price">$400<small>–$550/mo</small></div>
+      <div class="price">TBD<small>/mo</small></div>
       <p style="font-size:.92rem;color:var(--muted)">A door you can close.</p>
       <ul><li>Everything in Resident</li><li>Your own lockable office</li><li>Sign + gear storage included</li><li>Two available, priced by size</li></ul>
     </div>
@@ -554,10 +591,10 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <table>
       <thead><tr><th>Add-on</th><th>Members</th><th>Non-members</th></tr></thead>
       <tbody>
-        <tr><td>Conference room</td><td class="n">Included with Neighbor and up</td><td class="n">$30/hr</td></tr>
-        <tr><td>Podcast studio</td><td class="n">$25/hr</td><td class="n">$40/hr</td></tr>
-        <tr><td>Sign + gear storage</td><td class="n">$10/mo, included with Resident and up</td><td class="n">Members only</td></tr>
-        <tr><td>Day pass</td><td class="n">Included</td><td class="n">$25/day</td></tr>
+        <tr><td>Conference room</td><td class="n">Included with Neighbor and up</td><td class="n">TBD</td></tr>
+        <tr><td>Podcast room <small style="font-family:var(--mono);font-size:.7rem">opening soon</small></td><td class="n">TBD</td><td class="n">TBD · open to the public</td></tr>
+        <tr><td>Sign + gear storage</td><td class="n">TBD, included with Resident and up</td><td class="n">Members only</td></tr>
+        <tr><td>Day pass</td><td class="n">Included</td><td class="n">TBD</td></tr>
         <tr><td>Smart board</td><td class="n">Included</td><td class="n">Included with room rentals</td></tr>
       </tbody>
     </table>
@@ -581,7 +618,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <div class="cta"><a class="btn primary" href="#book">Request the room →</a></div>
   </div>
   <ul class="biz-list">
-    <li><b>$30/hr</b><span>Book by the hour. Ask about half and full days.</span></li>
+    <li><b>By the hour</b><span>Rates coming soon. Ask about half and full days.</span></li>
     <li><b>Big table</b><span>A real conference table for your whole team.</span></li>
     <li><b>Smart board</b><span>Plug in and present, with sound in the room.</span></li>
     <li><b>Close by</b><span>Near Heritage Square, with street parking and a lot out back.</span></li>
@@ -596,7 +633,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   <div class="how">
     <div><h3>Getting in</h3><p>Every member gets a key to the front door.</p></div>
     <div><h3>Hours</h3><p>Any time. Come in early, stay late, or drop in on a Saturday.</p></div>
-    <div><h3>Booking rooms</h3><p>Request the conference room, the garage or the studio on the <a href="#book">Book a Room</a> page. Once we confirm it, it's yours.</p></div>
+    <div><h3>Booking rooms</h3><p>Request the conference room, the garage or the podcast room on the <a href="#book">Book a Room</a> page. Once we confirm it, it's yours.</p></div>
     <div><h3>The garage</h3><p>Book it for a training, a team meeting or a lunch. Set up tables and roll out the smart board.</p></div>
     <div><h3>Clients + local businesses</h3><p>Bring clients in for consults and signings. Peoria Heights business owners can book the conference room for executive meetings and planning sessions.</p></div>
     <div><h3>Mail</h3><p>Have your business mail sent to 1314 E Marietta Ave. It gets sorted into member drawers in the workroom.</p></div>
@@ -693,7 +730,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <a class="back" href="#top">← Back to home</a>
     <p class="eyebrow">Book a room</p>
     <h2>Need a room? Ask here.</h2>
-    <p>Request the conference room, the garage or the podcast studio. Members and Peoria Heights businesses are both welcome. Jordyn or Jordan will approve it, and you'll see the status change below on this device.</p>
+    <p>Request the conference room, the garage or the podcast room. Members and Peoria Heights businesses are both welcome. Jordyn or Jordan will approve it, and you'll see the status change below on this device.</p>
   </div>
   <div id="adminQueue" hidden style="margin-bottom:2.5rem">
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem"><h3>Waiting for approval<span class="qcount" id="qcount" hidden></span></h3><span class="eyebrow" style="color:var(--muted)">Only Jordyn + Jordan see this</span></div>
@@ -709,7 +746,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
       <h3>Request a room</h3>
       <form class="stack" id="bookForm" novalidate>
         <div class="hp" aria-hidden="true"><label>Leave this empty<input id="hp-request" tabindex="-1" autocomplete="off"></label></div>
-        <div class="field"><label for="b-space">Which room</label><select id="b-space"><option>Conference room</option><option>The Garage</option><option>Podcast studio</option></select></div>
+        <div class="field"><label for="b-space">Which room</label><select id="b-space"><option>Conference room</option><option>The Garage</option><option value="Podcast studio">Podcast room (opening soon)</option></select></div>
         <div class="field"><label for="b-name">Your name</label><input id="b-name" required autocomplete="name"></div>
         <div class="row2">
           <div class="field"><label for="b-company">Company or team</label><input id="b-company" autocomplete="organization"></div>
@@ -725,7 +762,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
           <div class="field"><label for="b-people">People</label><input id="b-people" type="number" min="1" max="60" value="2"></div>
         </div>
         <div class="field"><label for="b-purpose">What's it for?</label><textarea id="b-purpose" placeholder="Buyer consult, closing, team training, podcast episode…"></textarea></div>
-        <label class="check"><input type="checkbox" id="b-member" checked> I'm a Heights House member. Non-members pay $30/hr for the conference room and $40/hr for the studio. Garage events are quoted.</label>
+        <label class="check"><input type="checkbox" id="b-member" checked> I'm a Heights House member. Non-member rates are coming soon, and we'll confirm the cost before your booking. Garage events are quoted.</label>
         <button class="sbtn" type="submit" id="b-submit">Send request</button>
         <p class="msg" id="b-msg" role="status"></p>
       </form>
@@ -739,7 +776,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <a class="back" href="#top">← Back to home</a>
     <p class="eyebrow">Need something?</p>
     <h2>Tell us what's up</h2>
-    <p>Something broken, out of coffee, or need a hand? Send it here and Jordyn or Jordan will take care of it. For a real emergency like a water leak, no heat or a break-in, call or text right away: <span class="tbd">number to confirm</span></p>
+    <p>Something broken, out of coffee, or need a hand? Send it here and Jordyn or Jordan will take care of it. For a real emergency like a water leak, no heat or a break-in, text Jordyn or Jordan right away.</p>
   </div>
   <div id="tkAdmin" hidden style="margin-bottom:2.5rem">
     <div style="display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem"><h3>Open requests<span class="qcount" id="tkCount" hidden></span></h3><span class="eyebrow" style="color:var(--muted)">Only Jordyn + Jordan see this</span></div>
@@ -823,16 +860,30 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
 <section id="contact" class="contact-band"><div class="wrap contact">
   <div>
     <h2>Come see the house.</h2>
-    <p>The easiest way to decide is to see it. Book a tour, or get on the waitlist for a private office.</p>
+    <p>The easiest way to decide is to see it. Tell us when works, and Jordyn or Jordan will reach out to set up a tour. Ask about memberships, a private office, the conference room or the podcast room.</p>
+    <dl style="margin-top:1.4rem;display:grid;grid-template-columns:auto 1fr;gap:.5rem 1rem">
+      <dt style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;padding-top:.25rem">Address</dt><dd style="margin:0;font-weight:700">1314 E Marietta Ave, Peoria Heights, IL 61616</dd>
+      <dt style="font-family:var(--mono);font-size:.72rem;text-transform:uppercase;padding-top:.25rem">Opening</dt><dd style="margin:0;font-weight:700">Soon. Follow @heightshouse1314 for the date.</dd>
+    </dl>
   </div>
   <div class="card">
-    <dl>
-      <dt>Address</dt><dd>1314 E Marietta Ave<br>Peoria Heights, IL 61616</dd>
-      <dt>Phone</dt><dd><span class="tbd">to confirm</span></dd>
-      <dt>Email</dt><dd><span class="tbd">to confirm</span></dd>
-      <dt>Tours</dt><dd>By appointment</dd>
-      <dt>Opening</dt><dd><span class="tbd">to confirm</span></dd>
-    </dl>
+    <form class="tour-form" id="tourForm" novalidate>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input id="hp-tour" tabindex="-1" autocomplete="off"></label></div>
+      <h3 style="margin:0">Book a tour</h3>
+      <div class="field"><label for="t-name">Your name</label><input id="t-name" autocomplete="name"></div>
+      <div class="row2">
+        <div class="field"><label for="t-phone">Phone</label><input id="t-phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="t-email">Email</label><input id="t-email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label for="t-interest">I'm interested in</label><select id="t-interest"><option>A membership</option><option>A private office</option><option>The conference room for my business</option><option>The podcast room</option><option>Hosting an event</option><option>Just curious</option></select></div>
+      <div class="field"><label for="t-when">Good days or times</label><input id="t-when" placeholder="Weekday mornings, Thursday after 3…"></div>
+      <button class="sbtn" type="submit" id="t-submit">Request a tour</button>
+      <p class="msg" id="t-msg" role="status"></p>
+    </form>
+    <div id="tourAdmin" hidden style="margin-top:1.4rem;border-top:2px dashed #1D1A3B;padding-top:1rem">
+      <h3 style="margin:0 0 .6rem">Tour requests<span class="qcount" id="tourCount" hidden></span></h3>
+      <div class="queue" id="tourQueue"></div>
+    </div>
   </div>
 </div></section>
 
@@ -864,7 +915,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   dds.forEach(d => d.addEventListener('toggle', () => { if (d.open) dds.forEach(o => { if (o !== d) o.open = false; }); }));
   document.querySelectorAll('.dd .menu a').forEach(a => a.addEventListener('click', () => { a.closest('details').open = false; }));
   document.addEventListener('click', e => dds.forEach(d => { if (d.open && !d.contains(e.target)) d.open = false; }));
-  document.querySelectorAll('.gallery button, .strip button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.gallery button, .strip button, .pod-img button').forEach(b => b.addEventListener('click', () => {
     img.src = b.dataset.src; img.alt = b.dataset.cap; cap.textContent = b.dataset.cap;
     if (lb.showModal) lb.showModal();
   }));
@@ -920,7 +971,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
                set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
                del(k){ try { localStorage.removeItem(k); } catch {} } };
   const MINE_KEY = 'hh-mine';
-  const mineIds = () => ls.get(MINE_KEY, {request:[], ticket:[], proposal:[]});
+  const mineIds = () => ls.get(MINE_KEY, {request:[], ticket:[], proposal:[], tour:[]});
   const remember = (kind, id) => { const m = mineIds(); (m[kind] ||= []).unshift(id); m[kind] = m[kind].slice(0,30); ls.set(MINE_KEY, m); };
   const me = ls.get('hh-me', {});
   const rememberMe = o => { Object.assign(me, Object.fromEntries(Object.entries(o).filter(([,v])=>v))); ls.set('hh-me', me); };
@@ -937,13 +988,13 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   }
 
   let isAdmin=false, loaded=false, events=[], schedule=[], myItems=[], allItems=[], selDate=localISO(new Date());
-  let myTk=[], allTk=[], myPr=[], allPr=[];
+  let myTk=[], allTk=[], myPr=[], allPr=[], allTours=[];
 
   for (let m=DAY_START; m<DAY_END; m+=30) $('#b-start').append(h('option',{value:pad(Math.floor(m/60))+':'+pad(m%60)}, fmtT(m)));
   $('#b-start').value='09:00'; $('#b-date').value=selDate; $('#b-date').min=selDate; $('#ev-date').value=selDate;
   ['b-date','b-start','b-len','b-space'].forEach(id => $('#'+id).addEventListener('change', () => { selDate=$('#b-date').value||selDate; renderTimeline(); }));
   // prefill contact fields this visitor used before
-  [['b-name','name'],['b-phone','phone'],['b-email','email'],['b-company','company'],['tk-name','name'],['tk-phone','phone'],['pr-name','name'],['pr-phone','phone'],['pr-email','email'],['pr-biz','company']]
+  [['t-name','name'],['t-phone','phone'],['t-email','email'],['b-name','name'],['b-phone','phone'],['b-email','email'],['b-company','company'],['tk-name','name'],['tk-phone','phone'],['pr-name','name'],['pr-phone','phone'],['pr-email','email'],['pr-biz','company']]
     .forEach(([id,k]) => { const el=$('#'+id); if (el && me[k] && !el.value) el.value=me[k]; });
 
   // ---- calendar ----
@@ -1184,10 +1235,36 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     if (await submit('proposal', p, '#pr-msg', '#pr-submit', 'Pitch sent. We will reach out to plan it with you.')) { $('#pr-topic').value=''; $('#pr-title').value=''; }
   });
 
+  // ---- tours ----
+  function renderTours(){
+    if (!isAdmin) return;
+    const open=allTours.filter(t=>t.status!=='done').sort((a,b)=>(a.createdAt||'').localeCompare(b.createdAt||''));
+    const c=$('#tourCount'); c.hidden=!open.length; c.textContent=open.length;
+    const q=$('#tourQueue'); q.replaceChildren();
+    if (!open.length){ q.append(h('div',{class:'empty'},'No tour requests waiting.')); return; }
+    for (const t of open){
+      q.append(h('div',{class:'req'},
+        h('div',{class:'meta'},
+          h('strong',{}, t.name||'Someone'),
+          h('span',{class:'when'}, [t.interest, t.when, t.createdAt ? new Date(t.createdAt).toLocaleDateString() : ''].filter(Boolean).join(' · ')),
+          h('span',{style:'color:var(--muted)'}, [t.phone, t.email].filter(Boolean).join(' · '))),
+        h('div',{class:'actions'},
+          h('button',{class:'sbtn ok small',type:'button',onclick:e=>staffSet('setTour',t.id,'done',e.currentTarget,'#t-msg')},'Reached out'))));
+    }
+  }
+  $('#tourForm').addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const t={ name:$('#t-name').value.trim(), phone:$('#t-phone').value.trim(), email:$('#t-email').value.trim(), interest:$('#t-interest').value, when:$('#t-when').value.trim() };
+    if (!t.name){ say('#t-msg','Add your name.',true); return; }
+    if (!t.phone && !t.email){ say('#t-msg','Add a phone number or email so we can reach you.',true); return; }
+    rememberMe({name:t.name, phone:t.phone, email:t.email});
+    if (await submit('tour', t, '#t-msg', '#t-submit', "Got it! We'll reach out soon to set up your tour.")) $('#t-when').value='';
+  });
+
   // ---- staff sign-in ----
   function showStaff(on){
     isAdmin = on;
-    ['#evAdmin','#adminQueue','#tkAdmin','#prAdmin','#staffBar'].forEach(s => { const el=$(s); if (el) el.hidden = !on; });
+    ['#evAdmin','#adminQueue','#tkAdmin','#prAdmin','#tourAdmin','#staffBar'].forEach(s => { const el=$(s); if (el) el.hidden = !on; });
   }
   $('#staffForm')?.addEventListener('submit', async ev => {
     ev.preventDefault();
@@ -1212,7 +1289,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     try {
       if (isAdmin){
         const d = await api('admin',{admin:true});
-        events=d.events; schedule=d.schedule; allItems=d.requests; allTk=d.tickets; allPr=d.proposals;
+        events=d.events; schedule=d.schedule; allItems=d.requests; allTk=d.tickets; allPr=d.proposals; allTours=d.tours||[];
       } else {
         const d = await api('public');
         events=d.events; schedule=d.schedule;
@@ -1220,7 +1297,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     } catch (x) { if (x.status===401){ adminKey=''; ls.del('hh-staff'); showStaff(false); return refresh(); } }
     await loadMine();
     loaded=true;
-    renderEvents(); renderTimeline(); renderMine(); renderQueue(); renderTickets(); renderProposals();
+    renderEvents(); renderTimeline(); renderMine(); renderQueue(); renderTickets(); renderProposals(); renderTours();
   }
   renderTimeline(); renderMine(); renderMonth(); renderTickets(); renderProposals();
   showStaff(!!adminKey);

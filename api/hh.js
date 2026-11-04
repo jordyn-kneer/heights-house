@@ -3,8 +3,8 @@
 import { put, get, list, del } from '@vercel/blob';
 import { randomBytes, timingSafeEqual } from 'node:crypto';
 
-const KINDS = ['events', 'requests', 'tickets', 'proposals'];
-const SUBMIT = { request: 'requests', ticket: 'tickets', proposal: 'proposals' };
+const KINDS = ['events', 'requests', 'tickets', 'proposals', 'tours'];
+const SUBMIT = { request: 'requests', ticket: 'tickets', proposal: 'proposals', tour: 'tours' };
 const newId = () => Date.now().toString(36) + randomBytes(9).toString('hex');
 const okId = id => typeof id === 'string' && /^[a-z0-9]{10,40}$/.test(id);
 const path = (kind, id) => `data/${kind}/${id}.json`;
@@ -58,6 +58,12 @@ function clean(kind, d) {
     if (toMin(r.start) < 7 * 60 || toMin(r.start) + r.minutes > 21 * 60) throw 'Rooms can be booked 7 AM to 9 PM.';
     return r;
   }
+  if (kind === 'tours') {
+    const t = { name: s(d.name, 80), phone: s(d.phone, 30), email: s(d.email, 120), interest: s(d.interest, 60), when: s(d.when, 200) };
+    if (!t.name) throw 'Add your name.';
+    if (!t.phone && !t.email) throw 'Add a phone number or email so we can reach you.';
+    return t;
+  }
   if (kind === 'tickets') {
     const t = { category: s(d.category, 60), urgency: s(d.urgency, 20), where: s(d.where, 60), details: s(d.details, 1200), name: s(d.name, 80), phone: s(d.phone, 30) };
     if (!t.details) throw 'Tell us what is going on.';
@@ -84,7 +90,7 @@ function isAdmin(req) {
 async function notify(kind, rec) {
   const key = process.env.RESEND_API_KEY, to = process.env.NOTIFY_EMAIL;
   if (!key || !to) return;
-  const label = { requests: 'Room request', tickets: 'Help request', proposals: 'Event pitch' }[kind];
+  const label = { requests: 'Room request', tickets: 'Help request', proposals: 'Event pitch', tours: 'Tour request' }[kind];
   const who = rec.name || rec.business || 'Someone';
   const lines = Object.entries(rec).filter(([, v]) => v !== '' && v != null).map(([k, v]) => `${k}: ${v}`).join('\n');
   try {
@@ -152,8 +158,8 @@ export default async function handler(req, res) {
     if (a === 'admin' || a === 'op') {
       if (!isAdmin(req)) return send(401, { error: 'That passcode did not work.' });
       if (req.method === 'GET' && a === 'admin') {
-        const [events, requests, tickets, proposals] = await Promise.all(KINDS.map(all));
-        return send(200, { events, requests, tickets, proposals, schedule: publicSchedule(requests) });
+        const [events, requests, tickets, proposals, tours] = await Promise.all(KINDS.map(all));
+        return send(200, { events, requests, tickets, proposals, tours, schedule: publicSchedule(requests) });
       }
       if (req.method === 'POST' && a === 'op') {
         const { op, id } = body; const now = new Date().toISOString();
@@ -165,7 +171,7 @@ export default async function handler(req, res) {
         }
         if (!okId(id)) return send(400, { error: 'Bad id.' });
         if (op === 'removeEvent') { await del(path('events', id)); return send(200, { ok: true }); }
-        const kind = { setRequest: 'requests', setTicket: 'tickets', setProposal: 'proposals', acceptProposal: 'proposals' }[op];
+        const kind = { setRequest: 'requests', setTicket: 'tickets', setProposal: 'proposals', acceptProposal: 'proposals', setTour: 'tours' }[op];
         if (!kind) return send(400, { error: 'Unknown action.' });
         const v = await load(kind, id); if (!v) return send(404, { error: 'Not found.' });
         const status = op === 'acceptProposal' ? 'accepted' : s(body.status, 20);
