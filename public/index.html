@@ -127,7 +127,7 @@ section{padding-block:clamp(3.5rem,8vw,6rem)}
 .rooms-list p{font-size:.98rem}
 
 /* MEMBERSHIP */
-.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;align-items:stretch}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:stretch}
 .tier{position:relative;background:var(--surface);border:2.5px solid var(--ink);border-radius:var(--r);padding:1.5rem 1.3rem;display:grid;gap:.9rem;align-content:start}
 .tier .chip{justify-self:start;font-family:var(--mono);font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;border:2px solid var(--ink);color:var(--on-color)}
 .tier:nth-child(1) .chip{background:var(--lilac)} .tier:nth-child(2) .chip{background:var(--sun)} .tier:nth-child(3) .chip{background:var(--sky)} .tier:nth-child(4) .chip{background:var(--mint)}
@@ -565,35 +565,29 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <div class="tier">
       <span class="chip">Community</span>
       <div class="price">TBD<small>/mo</small></div>
-      <p style="font-size:.92rem;color:var(--muted)">You're part of the house.</p>
-      <ul><li>Business mailing address</li><li>Monthly trainings + open work days</li><li>Every get-together</li><li>Wifi + coffee when you're in</li></ul>
+      <p style="font-size:.92rem;color:var(--muted)">Open to anybody who wants to be part of the house.</p>
+      <ul><li>Come in any time and grab any open seat</li><li>Business mailing address</li><li>Monthly trainings + open work days</li><li>Every get-together</li><li>Printer, workroom, wifi + coffee</li><li>Conference room by the hour</li></ul>
     </div>
     <div class="tier">
       <span class="chip">Neighbor</span>
       <div class="price">TBD<small>/mo</small></div>
-      <p style="font-size:.92rem;color:var(--muted)">The house is yours, any time.</p>
-      <ul><li>Everything in Community</li><li>Come in any time and grab any open seat</li><li>Printer + workroom</li><li>Conference room by the hour</li></ul>
+      <p style="font-size:.92rem;color:var(--muted)">Your own spot in the coworking room.</p>
+      <ul><li>Everything in Community</li><li>A desk that's always yours</li><li>Locking drawer, so you can leave your setup out</li><li>Sign + gear storage included</li></ul>
     </div>
     <div class="tier">
       <span class="chip">Resident</span>
       <div class="price">TBD<small>/mo</small></div>
-      <p style="font-size:.92rem;color:var(--muted)">Your own spot in the coworking room.</p>
-      <ul><li>Everything in Neighbor</li><li>A desk that's always yours</li><li>Locking drawer, so you can leave your setup out</li><li>Sign + gear storage included</li></ul>
-    </div>
-    <div class="tier">
-      <span class="chip">Private Office</span>
-      <div class="price">TBD<small>/mo</small></div>
-      <p style="font-size:.92rem;color:var(--muted)">A door you can close.</p>
-      <ul><li>Everything in Resident</li><li>Your own lockable office</li><li>Sign + gear storage included</li><li>Two available, priced by size</li></ul>
+      <p style="font-size:.92rem;color:var(--muted)">A private office with a door you can close.</p>
+      <ul><li>Everything in Neighbor</li><li>Your own lockable private office</li><li>Two available, priced by size</li></ul>
     </div>
   </div>
   <div class="addons">
     <table>
       <thead><tr><th>Add-on</th><th>Members</th><th>Non-members</th></tr></thead>
       <tbody>
-        <tr><td>Conference room</td><td class="n">Included with Neighbor and up</td><td class="n">TBD</td></tr>
+        <tr><td>Conference room</td><td class="n">Included for all members</td><td class="n">TBD</td></tr>
         <tr><td>Podcast room <small style="font-family:var(--mono);font-size:.7rem">opening soon</small></td><td class="n">TBD</td><td class="n">TBD · open to the public</td></tr>
-        <tr><td>Sign + gear storage</td><td class="n">TBD, included with Resident and up</td><td class="n">Members only</td></tr>
+        <tr><td>Sign + gear storage</td><td class="n">TBD, included with Neighbor and Resident</td><td class="n">Members only</td></tr>
         <tr><td>Day pass</td><td class="n">Included</td><td class="n">TBD</td></tr>
         <tr><td>Smart board</td><td class="n">Included</td><td class="n">Included with room rentals</td></tr>
       </tbody>
@@ -605,7 +599,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   <div class="explore">
     <a href="#space" class="ex" style="--c:var(--tomato)"><span class="eyebrow">The Space</span><h3>Take the tour</h3><p>The floor plan, every room, and photos of the house.</p><span class="go">Look around →</span></a>
     <a href="#calendar" class="ex" style="--c:var(--sky)"><span class="eyebrow">Calendar</span><h3>What's happening</h3><p>Trainings, open work days, lunches and get-togethers.</p><span class="go">See the calendar →</span></a>
-    <a href="#membership" class="ex" style="--c:var(--sun)"><span class="eyebrow">Membership</span><h3>Pick your spot</h3><p>Community, Neighbor, Resident or a Private Office.</p><span class="go">See pricing →</span></a>
+    <a href="#membership" class="ex" style="--c:var(--sun)"><span class="eyebrow">Membership</span><h3>Pick your spot</h3><p>Community, Neighbor or Resident.</p><span class="go">See pricing →</span></a>
     <a href="#who" class="ex" style="--c:var(--mint)"><span class="eyebrow">Who's here</span><h3>Your future officemates</h3><p>Meet the people who run the house and work in it.</p><span class="go">Meet everyone →</span></a>
   </div>
 </div></section>
