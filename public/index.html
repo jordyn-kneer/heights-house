@@ -384,6 +384,19 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
 .pod .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
 .pod .btn.ghost{color:#FFF4E6;border-color:#FFF4E6}
 @media (max-width:820px){.pod-grid{grid-template-columns:minmax(0,1fr)}}
+/* HUDDLE */
+.huddle{background:var(--sun);border-bottom:2px solid var(--ink)}
+.huddle-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.2fr) minmax(0,1fr);gap:2.2rem;align-items:center}
+.huddle-art img{width:100%;max-width:320px;height:auto;display:block;margin:0 auto}
+.huddle-copy{display:grid;gap:.9rem;align-content:start;min-width:0}
+.huddle .eyebrow{color:var(--ink)}
+.huddle-tag{font-family:var(--display);font-weight:800;font-size:1.5rem;color:#C43A1E;letter-spacing:-.02em;margin:0}
+.huddle-times{list-style:none;margin:.2rem 0 0;padding:0;display:grid;gap:.35rem}
+.huddle-times li{display:flex;gap:.8rem;align-items:baseline;font-weight:600}
+.huddle-times b{font-family:var(--mono);font-size:.85rem;width:3.2rem}
+.huddle-fine{font-size:.88rem;margin:0}
+.huddle-card{background:#FFFDF6}
+@media (max-width:980px){.huddle-grid{grid-template-columns:minmax(0,1fr)}.huddle-art img{max-width:200px;margin:0}}
 /* TOURS */
 .tour-form{display:grid;gap:.8rem}
 .tour-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
@@ -456,6 +469,40 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     <p>It's open to everyone, not just members. Bring your show, your business or your big idea and book it by the hour. We're aiming to open within the month.</p>
     <ul class="pod-list"><li>4 mics around the table</li><li>Interview lounge</li><li>Sound-treated walls</li><li>Book by the hour</li></ul>
     <div class="cta"><a class="btn primary" href="#contact">Get on the list →</a><a class="btn ghost" href="#book">Request a time</a></div>
+  </div>
+</div></section>
+
+<section id="huddle" class="huddle" data-view="home"><div class="wrap huddle-grid">
+  <div class="huddle-art"><img src="photos/huddle-mark.png" alt="Heights Huddle logo: a round table with a coffee mug, surrounded by six colorful arched seats" width="320" height="320"></div>
+  <div class="huddle-copy">
+    <p class="eyebrow">New · kicks off in December</p>
+    <h2>Heights Huddle</h2>
+    <p class="huddle-tag">Show up stuck. Leave with a plan.</p>
+    <p>A monthly morning in the garage for business owners, entrepreneurs and team leaders, from any industry. Bring the thing you're stuck on. A table full of people who run things will help you work through it.</p>
+    <ol class="huddle-times">
+      <li><b>7:45</b> Coffee + donuts</li><li><b>8:00</b> Round the table</li><li><b>8:15</b> Hot seats</li><li><b>9:00</b> Asks + offers</li><li><b>9:15</b> Back to work</li>
+    </ol>
+    <p class="huddle-fine">Free. Give first, no pitching, and what's said at the table stays at the table.</p>
+  </div>
+  <div class="card huddle-card">
+    <form class="tour-form" id="hudForm" novalidate>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input id="hp-huddle" tabindex="-1" autocomplete="off"></label></div>
+      <h3 style="margin:0">Save your seat</h3>
+      <p style="margin:0;font-size:.9rem;color:var(--muted)">We'll text or email you the date and details for the first huddle.</p>
+      <div class="field"><label for="h-name">Your name</label><input id="h-name" autocomplete="name"></div>
+      <div class="field"><label for="h-biz">Business</label><input id="h-biz" autocomplete="organization"></div>
+      <div class="row2">
+        <div class="field"><label for="h-phone">Phone</label><input id="h-phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="h-email">Email</label><input id="h-email" type="email" autocomplete="email"></div>
+      </div>
+      <div class="field"><label for="h-stuck">What are you stuck on right now? <span style="font-weight:400">(optional)</span></label><textarea id="h-stuck" rows="2" placeholder="Hiring, pricing, getting more leads, time…"></textarea></div>
+      <button class="sbtn" type="submit" id="h-submit">Save my seat</button>
+      <p class="msg" id="h-msg" role="status"></p>
+    </form>
+    <div id="hudAdmin" hidden style="margin-top:1.2rem;border-top:2px dashed #1D1A3B;padding-top:1rem">
+      <h3 style="margin:0 0 .6rem">Huddle RSVPs<span class="qcount" id="hudCount" hidden></span></h3>
+      <div class="queue" id="hudQueue"></div>
+    </div>
   </div>
 </div></section>
 
@@ -967,7 +1014,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
                set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
                del(k){ try { localStorage.removeItem(k); } catch {} } };
   const MINE_KEY = 'hh-mine';
-  const mineIds = () => ls.get(MINE_KEY, {request:[], ticket:[], proposal:[], tour:[]});
+  const mineIds = () => ls.get(MINE_KEY, {request:[], ticket:[], proposal:[], tour:[], huddle:[]});
   const remember = (kind, id) => { const m = mineIds(); (m[kind] ||= []).unshift(id); m[kind] = m[kind].slice(0,30); ls.set(MINE_KEY, m); };
   const me = ls.get('hh-me', {});
   const rememberMe = o => { Object.assign(me, Object.fromEntries(Object.entries(o).filter(([,v])=>v))); ls.set('hh-me', me); };
@@ -984,13 +1031,13 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   }
 
   let isAdmin=false, loaded=false, events=[], schedule=[], myItems=[], allItems=[], selDate=localISO(new Date());
-  let myTk=[], allTk=[], myPr=[], allPr=[], allTours=[];
+  let myTk=[], allTk=[], myPr=[], allPr=[], allTours=[], allHud=[];
 
   for (let m=DAY_START; m<DAY_END; m+=30) $('#b-start').append(h('option',{value:pad(Math.floor(m/60))+':'+pad(m%60)}, fmtT(m)));
   $('#b-start').value='09:00'; $('#b-date').value=selDate; $('#b-date').min=selDate; $('#ev-date').value=selDate;
   ['b-date','b-start','b-len','b-space'].forEach(id => $('#'+id).addEventListener('change', () => { selDate=$('#b-date').value||selDate; renderTimeline(); }));
   // prefill contact fields this visitor used before
-  [['t-name','name'],['t-phone','phone'],['t-email','email'],['b-name','name'],['b-phone','phone'],['b-email','email'],['b-company','company'],['tk-name','name'],['tk-phone','phone'],['pr-name','name'],['pr-phone','phone'],['pr-email','email'],['pr-biz','company']]
+  [['h-name','name'],['h-phone','phone'],['h-email','email'],['h-biz','company'],['t-name','name'],['t-phone','phone'],['t-email','email'],['b-name','name'],['b-phone','phone'],['b-email','email'],['b-company','company'],['tk-name','name'],['tk-phone','phone'],['pr-name','name'],['pr-phone','phone'],['pr-email','email'],['pr-biz','company']]
     .forEach(([id,k]) => { const el=$('#'+id); if (el && me[k] && !el.value) el.value=me[k]; });
 
   // ---- calendar ----
@@ -1231,6 +1278,30 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     if (await submit('proposal', p, '#pr-msg', '#pr-submit', 'Pitch sent. We will reach out to plan it with you.')) { $('#pr-topic').value=''; $('#pr-title').value=''; }
   });
 
+  // ---- heights huddle ----
+  function renderHuddle(){
+    if (!isAdmin) return;
+    const list=[...allHud].sort((a,b)=>(a.createdAt||'').localeCompare(b.createdAt||''));
+    const c=$('#hudCount'); c.hidden=!list.length; c.textContent=list.length;
+    const q=$('#hudQueue'); q.replaceChildren();
+    if (!list.length){ q.append(h('div',{class:'empty'},'No RSVPs yet.')); return; }
+    for (const r of list){
+      q.append(h('div',{class:'req'},
+        h('div',{class:'meta'},
+          h('strong',{}, (r.name||'Someone')+(r.business ? ' · '+r.business : '')),
+          h('span',{style:'color:var(--muted)'}, [r.phone, r.email].filter(Boolean).join(' · ')),
+          r.stuck ? h('span',{}, 'Stuck on: '+r.stuck) : null)));
+    }
+  }
+  $('#hudForm').addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const r={ name:$('#h-name').value.trim(), business:$('#h-biz').value.trim(), phone:$('#h-phone').value.trim(), email:$('#h-email').value.trim(), stuck:$('#h-stuck').value.trim() };
+    if (!r.name){ say('#h-msg','Add your name.',true); return; }
+    if (!r.phone && !r.email){ say('#h-msg','Add a phone number or email so we can send you the details.',true); return; }
+    rememberMe({name:r.name, phone:r.phone, email:r.email, company:r.business});
+    if (await submit('huddle', r, '#h-msg', '#h-submit', "You're on the list! We'll send you the date and details for the first huddle.")) $('#h-stuck').value='';
+  });
+
   // ---- tours ----
   function renderTours(){
     if (!isAdmin) return;
@@ -1260,7 +1331,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
   // ---- staff sign-in ----
   function showStaff(on){
     isAdmin = on;
-    ['#evAdmin','#adminQueue','#tkAdmin','#prAdmin','#tourAdmin','#staffBar'].forEach(s => { const el=$(s); if (el) el.hidden = !on; });
+    ['#evAdmin','#adminQueue','#tkAdmin','#prAdmin','#tourAdmin','#hudAdmin','#staffBar'].forEach(s => { const el=$(s); if (el) el.hidden = !on; });
   }
   $('#staffForm')?.addEventListener('submit', async ev => {
     ev.preventDefault();
@@ -1285,7 +1356,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     try {
       if (isAdmin){
         const d = await api('admin',{admin:true});
-        events=d.events; schedule=d.schedule; allItems=d.requests; allTk=d.tickets; allPr=d.proposals; allTours=d.tours||[];
+        events=d.events; schedule=d.schedule; allItems=d.requests; allTk=d.tickets; allPr=d.proposals; allTours=d.tours||[]; allHud=d.huddle||[];
       } else {
         const d = await api('public');
         events=d.events; schedule=d.schedule;
@@ -1293,7 +1364,7 @@ dialog.lb button{font:inherit;font-weight:700;border:2px solid var(--ink);backgr
     } catch (x) { if (x.status===401){ adminKey=''; ls.del('hh-staff'); showStaff(false); return refresh(); } }
     await loadMine();
     loaded=true;
-    renderEvents(); renderTimeline(); renderMine(); renderQueue(); renderTickets(); renderProposals(); renderTours();
+    renderEvents(); renderTimeline(); renderMine(); renderQueue(); renderTickets(); renderProposals(); renderTours(); renderHuddle();
   }
   renderTimeline(); renderMine(); renderMonth(); renderTickets(); renderProposals();
   showStaff(!!adminKey);
